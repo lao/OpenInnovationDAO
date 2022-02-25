@@ -17,7 +17,8 @@ sequenceDiagram
     Unauthorized User->>+AuthenticationChecker: connect wallet with email confirmation code
     AuthenticationChecker-->+Unauthorized User: validation errors
     AuthenticationChecker->>+DataManager: valid user: save user data
-    DataManager->>+DataManager: data to store user data (wallet + email - where to store this?)
+    DataManager->>+BlockchainStorage: data to store user data (wallet + email - where to store this?)
+    BlockchainStorage->>+DataManager: saved
     DataManager->>+AuthenticationChecker: ok
     AuthenticationChecker->>+Unauthorized User: ok
 ```
@@ -32,3 +33,10 @@ sequenceDiagram
     VotingRegistry->>-Project Checker: Generates id of project
     Project Checker->>-Authorized User: Successful project (gets an id for project)
 ```
+
+
+TODO:
+- have a flow for submitting project constraints per each company (voted by the users)
+- having a time window to vote and start a project (constraint)
+- as authenticated you could volunteer to work on a project
+- [] decentralized CV and validator of professional skills
