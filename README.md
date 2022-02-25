@@ -11,6 +11,21 @@
 
 ```mermaid
 sequenceDiagram
+    Unauthorized User->>+AuthenticationChecker: initial registration (email with company domain)
+    AuthenticationChecker-->+Unauthorized User: validation errors
+    AuthenticationChecker->>+Unauthorized User: confirmation email with code (how-to wallet)
+    Unauthorized User->>+AuthenticationChecker: connect wallet with email confirmation code
+    AuthenticationChecker-->+Unauthorized User: validation errors
+    AuthenticationChecker->>+DataManager: valid user: save user data
+    DataManager->>+DataManager: data to store user data (wallet + email - where to store this?)
+    DataManager->>+AuthenticationChecker: ok
+    AuthenticationChecker->>+Unauthorized User: ok
+```
+
+### Project submission
+
+```mermaid
+sequenceDiagram
     Authorized User->>+Project Checker: Submit project
     Project Checker-->+Authorized User: Validation errors
     Project Checker->>+VotingRegistry: Save project data as candidate
