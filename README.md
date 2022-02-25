@@ -1,5 +1,19 @@
 # OpenInnovationDAO [name to be changed]
 
+## Intro
+
+The idea of this DAO is to serve as a Democratic innovation deparment manager.
+
+## Main caracteristics/flow
+
+- Budget is started by an organization (`@wetransfer.com` for example)
+- Projects are all candidates to win a budget
+- Any company member, with a `@wetransfer.com` can submit project for `WeTransfer` organization
+- There will be a voting round, where all registered users from on organization will be able to vote
+- After the election closing, projects will be selected and a round of selecting project members will start
+- Project members should be select democratically via a queue or etc (How to vet tech skills and etc?)
+- Once projects members are fullfilled, budget is released.
+
 
 ## To define:
 
