@@ -32,3 +32,38 @@ sequenceDiagram
     VotingRegistry->>-Project Checker: Generates id of project
     Project Checker->>-Authorized User: Successful project (gets an id for project)
 ```
+
+
+### Budget registration
+
+```mermaid
+sequenceDiagram
+    WeTransfer->>+OpenInnovationDAO:        submit budget
+    OpenInnovationDAO->>+BudgetRegistry:    save budget (crypto) 
+    BudgetRegistry->>+OpenInnovationDAO:    flag project has `has_budget`
+    OpenInnovationDAO->>+WeTransfer:        send message to all users that a new budget
+```
+
+### Project voting
+
+```mermaid
+sequenceDiagram
+    AuthorizedUser->>+VotingRegistry: register vote (wallet, email, projectid)
+    VotingRegistry->>+AuthorizedUser: show details and prompt for comfirmation (id to confirm)
+    AuthorizedUser->>+VotingRegistry: confirm with id
+    VotingRegistry->>+AuthorizedUser: ok (vote id)
+``` 
+
+### Project member submission
+TODO:
+- queue of members for each project
+- try to find a very democratic way to select engineers, designers, project managers, business analists and etc.
+- voting maybe?
+
+# GENERAL TODO
+
+- finish the flows and graphs
+- have a flow for submitting project constraints per each company (voted by the users)
+- having a time window to vote and start a project (constraint)
+- as authenticated you could volunteer to work on a project
+- [] decentralized CV and validator of professional skills
