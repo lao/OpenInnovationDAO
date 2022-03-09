@@ -1,46 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import './App.css';
+import { MetaMaskAuth } from './components/MetaMaskAuth';
 
-const bindWallet = async ({ setError, setTxs, ether, addr }) => {
-  if(window.ethereum) {
-    window.ethereum.enable().then(function(acc) {
-        App.account = acc[0];
-        //TODO: Hide button and disable in the future
-    });
-  }
-};
 
-function MetaMaskAuth() {
-  if(window.ethereum) {
+class App extends Component {
+  render() {
     return (
-      <ConnectMetaMask onClick={bindWallet} />
-    )
-  } else {
-    return (
-      <GetWallet />
-    )
+      <div className="App">
+        <header className="App-header">
+          <img src="https://miro.medium.com/max/555/1*FjSkfan-Kh3vrgtlW8UP_g.png" alt="MetaMask logo" />
+          <h1 className="App-title"><MetaMaskAuth /></h1>
+        </header>
+      </div>
+    );
   }
 }
 
-function ConnectMetaMask(props) {
-  return (  
-    <button onClick={props.onClick}>
-      Connect with MetaMask
-    </button>
-  );
-}
-
-function GetWallet(props) {
-  return (
-    <button onClick={() => window.open("https://metamask.io/download/")}>
-      Get a wallet!
-    </button>
-  );
-}
-
-export default function App() {
-  return (
-    <div>
-      <MetaMaskAuth />
-    </div>
-  );
-}
+export default App;
